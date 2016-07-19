@@ -1,0 +1,23 @@
+<?php
+// module/Album/view/album/album/delete.phtml:
+$title = '删除唱片';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>你确定要删除
+   '<?php echo $this->escapeHtml($album->artist); ?>'的
+   '<?php echo $this->escapeHtml($album->title); ?>'？
+</p>
+<?php
+$url = $this->url('album', array(
+   'action' => 'delete',
+   'id'     => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+   <input type="hidden" name="id" value="<?php echo (int) $album->id; ?>" />
+   <input type="submit" name="del" value="是" />
+   <input type="submit" name="del" value="否" />
+</div>
+</form>

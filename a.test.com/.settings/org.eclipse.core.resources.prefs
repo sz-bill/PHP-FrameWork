@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//config/application.config.php=UTF-8
+encoding//module/Album/src/Album/Form/AlbumForm.php=UTF-8
+encoding//module/Helloworld/Module.php=UTF-8
+encoding//module/Helloworld/view/helloworld/helloworld/add.phtml=UTF-8
+encoding//module/Helloworld/view/helloworld/helloworld/delete.phtml=UTF-8
+encoding//module/Helloworld/view/helloworld/helloworld/index.phtml=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

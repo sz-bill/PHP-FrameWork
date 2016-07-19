@@ -1,0 +1,36 @@
+<?php
+// module/Account/view/account/account/index.phtml:
+$title = 'Account $title';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+	<a href="<?php echo $this->url('account', array('action'=>'add'));?>">AAAAAAAAAAAAAAAAAAAA</a>
+</p>
+<table class="table">
+	<tr>
+		<th>xxxxx</th>
+		<th>qqqqq</th>
+		<th>fffffffffffff</th>
+	</tr>
+<?php foreach ($accounts as $account) : ?>
+<tr>
+		<td><?php echo $this->escapeHtml($account->title);?></td>
+		<td><?php echo $this->escapeHtml($account->artist);?></td>
+		<td><a
+			href="<?php
+    echo $this->url('account', array(
+        'action' => 'edit',
+        'id' => $account->id
+    ));
+    ?>">edit</a> <a
+			href="<?php
+    
+    echo $this->url('account', array(
+        'action' => 'delete',
+        'id' => $account->id
+    ));
+    ?>">delete</a></td>
+	</tr>
+<?php endforeach; ?>
+</table>

@@ -1,0 +1,24 @@
+<?php
+// module/Helloworld/view/helloworld/helloworld/delete.phtml:
+$title = 'Helloworld a';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>HelloworldHelloworldHelloworldHelloworldHelloworldHelloworld
+   '<?php echo $this->escapeHtml($helloworld->artist); ?>' artist
+   '<?php echo $this->escapeHtml($helloworld->title); ?>' title
+</p>
+<?php
+$url = $this->url('helloworld', array(
+    'action' => 'delete',
+    'id' => $this->id
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+	<div>
+		<input type="hidden" name="id"
+			value="<?php echo (int) $helloworld->id; ?>" /> <input type="submit"
+			name="del" value="del" /> <input type="submit" name="del"
+			value="submit" />
+	</div>
+</form>
