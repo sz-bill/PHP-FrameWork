@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+*, body, td {
+  margin: 0; padding: 0;
+}
+
+a {
+}
+
+a:hover {
+}
+
+.id-clean{
+    clear: both;
+    line-height: 1px;
+}
+
+div.my-page{    margin: 8px;}
+div.full-layout{}
+@media only screen and (min-width: 771px){
+    div.main-layout{
+        width: 1260px;
+        margin: 0 auto;
+    }
+    div.top-logo{
+        width: 350px; height: 100px;
+        float: left;
+    }
+    div.top-search{
+        float: left;
+        width: 30%; height: 100px;
+    }
+    div.top-mini-info{
+        float: right;
+        width: 100px; height: 100px;
+    }
+}
+@media only screen and (max-width: 500px){}
+@media only screen and (max-width: 400px){}
