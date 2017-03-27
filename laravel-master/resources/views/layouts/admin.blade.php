@@ -21,6 +21,8 @@
     <script src="{{SKIN_JS_ADMIN}}bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
+	<script src="/skin/ckeditor/ckeditor.js"></script>
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">

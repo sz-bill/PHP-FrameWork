@@ -218,6 +218,35 @@
                                 </div>
                             </div>
                         </form>
+
+						<script>
+//                            http://www.cnblogs.com/answercard/p/3709463.html
+                            var mc = {
+                                // Define the toolbar groups as it is a more accessible solution.
+                                toolbar: [
+                                    ['Source', '-', 'Bold', 'Italic'], '/',
+                                    ['Checkbox', 'Radio', 'TextField', 'Textarea', 'Select','Button']
+                                ],
+                                toolbar_Basic: [
+                                    ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About']
+                                ],
+                                toolbarGroups: [
+                                    {"name":"basicstyles","groups":["basicstyles"]},
+                                    {"name":"links","groups":["links"]},
+                                    {"name":"paragraph","groups":["list","blocks"]},
+                                    {"name":"document","groups":["mode"]},
+                                    {"name":"insert","groups":["insert"]},
+                                    {"name":"styles","groups":["styles"]},
+                                    {"name":"about","groups":["about"]}
+                                ],
+
+                                // Remove the redundant buttons from toolbar groups defined above.
+                                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
+                            };
+                            CKEDITOR.replace( 'editor1', mc);
+                        </script>
+
+
                     </div>
                 </div>
             </div>
