@@ -1,0 +1,24 @@
+thead, tfoot{background: #666; color: #ffffff; line-height: 35px;}
+tbody{}
+tbody tr{line-height: 25px; cursor: pointer; margin: 2px 0;}
+tbody tr.even{background: #eeeeee;}
+tbody tr:hover{background: #c3f0fc;}
+
+.product-smallimage{ margin: 5px;    max-height:50px; max-width: 100px;}
+.product-sourceimage{    max-height:100px;}
+.product-baseimage{    max-height:100px;}
+.product-thumbnailimage{    max-height:100px;}
+
+tbody td{padding: 0 5px;}
+@media (min-width: 992px) {
+    .col-md-4 {
+        width: 15%;
+    }
+
+    .col-md-6 {
+        width: 80%;
+    }
+
+    .short_description{height: 100px;}
+    .description{height: 150px;}
+}
