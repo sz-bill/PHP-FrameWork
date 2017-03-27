@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
     Route::any('/product/edit', 'Admin\ProductController@edit');
     Route::post('/product/postEdit', 'Admin\ProductController@postEdit');
     Route::any('/product/delete', 'Admin\ProductController@delete');
+    Route::any('/product/uploadImage', 'Admin\ProductController@uploadImage');
 
     Route::get('/', 'AdminController@index');
 });

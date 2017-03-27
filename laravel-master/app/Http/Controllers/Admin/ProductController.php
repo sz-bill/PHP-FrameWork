@@ -129,4 +129,27 @@ class ProductController extends Controller
      * 删除产品
      */
     public function del(Request $request){}
+
+    /**
+     * 编辑器上传图片
+     * @param Request $request
+     */
+    public function uploadImage(Request $request){
+        $imageFile = '';
+        try{
+            $imageFile = $this->getUpload()->setPathString(Upload::CATALOG_CKEDITOR)
+                                           ->uploadForCkeditor($request, 'upload');
+            $imageFile = url($imageFile);
+        }catch (Exception $e){
+            print_r($e->getMessage());
+        }
+
+//        修改 ckeditor.js 文件 的内容为   [b._token='2tgQThlQWrNBvCBsy7hvSnvAgnxwD8V6u4L3KNNc']
+        $_token = '2tgQThlQWrNBvCBsy7hvSnvAgnxwD8V6u4L3KNNc';
+        if($imageFile == ''){
+            return '<script>window.parent.uploadImageToken.vid="服务器出错，请联系站长。";window.parent.uploadImageToken.error()</script>';
+        }
+        return '<script>window.parent.uploadImageToken.vid="'.$imageFile.'";window.parent.uploadImageToken.token()</script>';
+        return '<script>window.parent.uploadImageToken.token("xxxxxxxxxxxx");</script>';
+    }
 }

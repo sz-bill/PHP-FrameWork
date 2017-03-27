@@ -7,7 +7,7 @@
 
     <title>Laravel</title>
 
-    <!-- Fonts -->
+    <!-- Fonts  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css -->
     <link href="{{SKIN_CSS_ADMIN}}font-awesome.min.css" rel='stylesheet' type='text/css'>
 
 
@@ -21,7 +21,8 @@
     <script src="{{SKIN_JS_ADMIN}}bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-	<script src="/skin/ckeditor/ckeditor.js"></script>
+    <script src="/skin/ckeditor/ckeditor.js"></script>
+    <script src="/skin/ckeditor/config.js"></script>
 
 </head>
 <body id="app-layout">

@@ -200,7 +200,7 @@
                             <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                                 <label class="col-md-4 control-label">产品描述</label>
                                 <div class="col-md-6">
-                                    <textarea style="min-height: 200px;" class="form-control description" name="description">{{$product->description}}</textarea>
+                                    <textarea id="description" style="min-height: 200px;" class="form-control description" name="description">{{$product->description}}</textarea>
                                     @if ($errors->has('description'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -218,35 +218,7 @@
                                 </div>
                             </div>
                         </form>
-
-						<script>
-//                            http://www.cnblogs.com/answercard/p/3709463.html
-                            var mc = {
-                                // Define the toolbar groups as it is a more accessible solution.
-                                toolbar: [
-                                    ['Source', '-', 'Bold', 'Italic'], '/',
-                                    ['Checkbox', 'Radio', 'TextField', 'Textarea', 'Select','Button']
-                                ],
-                                toolbar_Basic: [
-                                    ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'About']
-                                ],
-                                toolbarGroups: [
-                                    {"name":"basicstyles","groups":["basicstyles"]},
-                                    {"name":"links","groups":["links"]},
-                                    {"name":"paragraph","groups":["list","blocks"]},
-                                    {"name":"document","groups":["mode"]},
-                                    {"name":"insert","groups":["insert"]},
-                                    {"name":"styles","groups":["styles"]},
-                                    {"name":"about","groups":["about"]}
-                                ],
-
-                                // Remove the redundant buttons from toolbar groups defined above.
-                                removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar'
-                            };
-                            CKEDITOR.replace( 'editor1', mc);
-                        </script>
-
-
+                        <script type="text/javascript">CKEDITOR.replace('description',editorConfig);</script>
                     </div>
                 </div>
             </div>
