@@ -45,17 +45,33 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
     Route::get('/logout', 'Admin\AuthController@logout');
     Route::any('/register', 'Admin\AuthController@register');
 
-
+//    分类目录管理
     Route::any('/category', 'Admin\CategoryController@index');
     Route::any('/category/add', 'Admin\CategoryController@add');
     Route::any('/category/edit', 'Admin\CategoryController@edit');
 
+//    产品管理
     Route::any('/product', 'Admin\ProductController@index');
     Route::any('/product/add', 'Admin\ProductController@add');
     Route::any('/product/edit', 'Admin\ProductController@edit');
     Route::post('/product/postEdit', 'Admin\ProductController@postEdit');
     Route::any('/product/delete', 'Admin\ProductController@delete');
     Route::any('/product/uploadImage', 'Admin\ProductController@uploadImage');
+
+//    Banner管理
+    Route::any('/bannerManager', 'Admin\BannerController@index');
+    Route::any('/bannerManager/add', 'Admin\BannerController@add');
+    Route::any('/bannerManager/edit', 'Admin\BannerController@edit');
+    Route::post('/bannerManager/postEdit', 'Admin\BannerController@postEdit');
+    Route::any('/bannerManager/delete', 'Admin\BannerController@delete');
+
+
+    //    首页内容管理
+    Route::any('/ManageHome', 'Admin\ManageHomeController@index');
+    Route::any('/ManageHome/add', 'Admin\ManageHomeController@add');
+    Route::any('/ManageHome/edit', 'Admin\ManageHomeController@edit');
+    Route::post('/ManageHome/postEdit', 'Admin\ManageHomeController@postEdit');
+    Route::any('/ManageHome/delete', 'Admin\ManageHomeController@delete');
 
     Route::get('/', 'AdminController@index');
 });

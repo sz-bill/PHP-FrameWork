@@ -46,8 +46,10 @@
                 <a class="navbar-brand" href="{{ url('admin') }}">
                     网站LOGO图片
                 </a>
+                <a class="navbar-brand" href="{{ url('admin/ManageHome') }}">首页内容管理</a>
                 <a class="navbar-brand" href="{{ url('admin/category') }}">分类管理</a>
                 <a class="navbar-brand" href="{{ url('admin/product') }}">产品管理</a>
+                <a class="navbar-brand" href="{{ url('admin/bannerManager') }}">广告图管理</a>
 
 
             </div>

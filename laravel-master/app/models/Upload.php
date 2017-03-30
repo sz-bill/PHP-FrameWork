@@ -17,7 +17,40 @@ class Upload extends Model
      * 产品图片目录
      */
     const CATALOG_PRODUCT = '/media/product/';
+    /**
+     * Ckeditor 编辑器上传图片存放目录
+     */
+    const CATALOG_CKEDITOR = '/media/cke/';
+    /**
+     * 广告图片目录
+     */
+    const MEDIA_BANNER = '/media/banner/';
 
+    /**
+     * 上传文件到指定目录
+     * @var string
+     */
+    protected $path_string = '';
+    protected $file_string = '';
+
+    /**
+     * 设置参数址
+     * @param $dir_name
+     * @return $this
+     */
+    public function setPathString($dir_name)
+    {
+        $this->path_string = $dir_name;
+        return $this;
+    }
+
+    /**
+     * 返回URL地址
+     * @return string
+     */
+    public function toUrl(){
+        return url()->current() . $this->path_string . $this->file_string;
+    }
     /**
      * 上传文件
      * @param $image
@@ -33,10 +66,11 @@ class Upload extends Model
         }
         $extension = $image->getClientOriginalExtension();
         $filename = uniqid() . '.' . $extension;
-        $path = public_path() . self::CATALOG_PRODUCT;
+        $pathString = ($this->path_string == '') ? (self::CATALOG_PRODUCT) : $this->path_string;
+        $path = public_path() . $pathString;
         //Move file into uploads folder
         $image->move($path, $filename);
-        return self::CATALOG_PRODUCT . $filename;
+        return $pathString . $filename;
     }
     /**
      * 上传产品图片
@@ -53,8 +87,37 @@ class Upload extends Model
         return $this->uploadFile($images);
     }
 
+    /**
+     * 上传 ckeditor 的图片
+     * @param Request $request
+     * @param $name
+     * @return string
+     */
+    public function uploadForCkeditor(Request $request, $name){
+        $images = $request->file($name);
+        if(!$images){
+            return '';
+        }
+        return $this->uploadFile($images);
+    }
 
     /**
+     * 上传广告图片
+     * @param Request $request
+     * @param $name
+     * @return string
+     */
+    public function uploadForBanner(Request $request, $name){
+        $images = $request->file($name);
+        if(!$images){
+            return '';
+        }
+        return $this->uploadFile($images);
+    }
+
+
+    /**
+     * 这个网络抄的
      * Store a newly created resource in storage.
      * https://github.com/Andy99/Laravel-5-Upload-files/blob/master/app/Http/Controllers/UploadController.php
      * @return Response
