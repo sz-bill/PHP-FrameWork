@@ -7,28 +7,14 @@ $manageHome = ['id'=>"menu-ManageHome", 'label'=>'首页内容管理', 'items'=>
     ['dataHref' => url('admin/ManageHome3'), 'label' => '首页内容管理','dataTitle' => '首页内容管理4'],
     ['dataHref' => url('admin/ManageHome4'), 'label' => '首页内容管理','dataTitle' => '首页内容管理5'],
 )];
-$category = ['id'=>"menu-category", 'label'=>'分类管理', 'items'=>array(
-    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 1'],
-    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 2'],
-    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 3'],
-    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 4'],
-    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 5'],
-)];
 $product = ['id'=>"menu-product", 'label'=>'产品管理', 'items'=>array(
-    ['dataHref' => url('admin/product'), 'label' => '产品管理','dataTitle' => '产品管理 1'],
-    ['dataHref' => url('admin/product'), 'label' => '产品管理','dataTitle' => '产品管理 2'],
+    ['dataHref' => url('admin/category'), 'label' => '分类管理','dataTitle' => '分类管理 2'],
     ['dataHref' => url('admin/product'), 'label' => '产品管理','dataTitle' => '产品管理 3'],
-    ['dataHref' => url('admin/product'), 'label' => '产品管理','dataTitle' => '产品管理 4'],
-    ['dataHref' => url('admin/product'), 'label' => '产品管理','dataTitle' => '产品管理 5'],
 )];
 $bannerManager = ['id'=>"menu-bannerManager", 'label'=>'广告图管理', 'items'=>array(
     ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 1'],
-    ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 2'],
-    ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 3'],
-    ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 4'],
-    ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 5'],
 )];
-array_push($menus, $manageHome, $category, $product, $bannerManager);
+array_push($menus, $manageHome, $product, $bannerManager);
 //print_r($menus);die;
 ?>
 
@@ -113,7 +99,7 @@ array_push($menus, $manageHome, $category, $product, $bannerManager);
             <dd>
                 <ul>
                     <?php foreach($list['items'] as $item):?>
-                    <li><a data-href="{{$item['dataHref']}}" data-title="{{$item['dataTitle']}}" href="javascript:void(0)">{{$item['dataTitle']}}</a></li>
+                    <li><a data-href="{{$item['dataHref']}}" data-title="{{$item['dataTitle']}}" href="javascript:void(0)">{{$item['label']}}</a></li>
                     <?php endforeach;?>
                 </ul>
             </dd>

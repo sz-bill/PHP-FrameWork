@@ -24,6 +24,7 @@ class BannerController extends Controller
         return new Upload();
     }
     public function index(){
+        return view('admin.banner.index');
         $collection = $this->getBanner()->orderBy('page_code')->get();
 
         $pageCode = $this->getBanner()->getPageCode();

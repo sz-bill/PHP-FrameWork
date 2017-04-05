@@ -1,143 +1,40 @@
-@extends('layouts.admin')
+@extends('layouts.category')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span>分类目录</span>
-                        <button><span><a href="{{ url('admin/category') }}">列表</a></span></button>
-                        <button><span><a href="{{ url('admin/catalog/add') }}">添加</a></span></button>
-                        <button><span><a href="{{ url('admin/catalog/del') }}">删除</a></span></button>
-                    </div>
-
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="{{ url('admin/category/add') }}">
-                            {!! csrf_field() !!}
-                            <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">状态</label>
-                                <div class="col-md-6">
-                                    <select class="form-control" name="status">
-                                        <option value="1">启用</option>
-                                        <option value="0">禁用</option>
-                                    </select>
-
-                                    @if ($errors->has('status'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('status') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('visibility') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">是否可见</label>
-                                <div class="col-md-6">
-                                    <select class="form-control" name="visibility">
-                                        <option value="1">可见</option>
-                                        <option value="0">隐藏</option>
-                                    </select>
-
-                                    @if ($errors->has('visibility'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('visibility') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group{{ $errors->has('account_number') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">根目录</label>
-                                <div class="col-md-6">
-                                    <select class="form-control" name="level">
-                                        <option value="0">网站根目录</option>
-                                    </select>
-
-                                    @if ($errors->has('level'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('level') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">分类名称</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="title" value="">
-
-                                    @if ($errors->has('title'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('title') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('sub_title') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">分类副标题</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="sub_title" value="">
-
-                                    @if ($errors->has('sub_title'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('sub_title') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">图片广告</label>
-                                <div class="col-md-6">
-                                    <input type="file" class="form-control" name="image" >
-
-                                    @if ($errors->has('image'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('short_description') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">分类简介</label>
-                                <div class="col-md-6">
-                                    <textarea class="form-control short_description" name="short_description">分类简介</textarea>
-                                    @if ($errors->has('short_description'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('short_description') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                <label class="col-md-4 control-label">分类描述</label>
-                                <div class="col-md-6">
-                                    <textarea class="form-control description" name="description">分类描述</textarea>
-                                    @if ($errors->has('description'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-save-in"></i>保存分类
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<div class="page-container">
+    <form action="{{ url('admin/category/add') }}" method="post" class="form form-horizontal" id="form-user-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">
+                <span class="c-red">*</span>
+                分类名称：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
             </div>
         </div>
-    </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">备注：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-9 col-offset-2">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</div>
+@endsection
+
+@section('afterContent')
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="{{SKIN_ADMIN}}h-ui/v1/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="{{SKIN_ADMIN}}h-ui/v1/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="{{SKIN_ADMIN}}h-ui/v1/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+    });
+</script>
 @endsection
