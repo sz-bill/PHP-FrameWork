@@ -14,7 +14,10 @@ $product = ['id'=>"menu-product", 'label'=>'产品管理', 'items'=>array(
 $bannerManager = ['id'=>"menu-bannerManager", 'label'=>'广告图管理', 'items'=>array(
     ['dataHref' => url('admin/bannerManager'), 'label' => '广告图管理','dataTitle' => '广告图管理 1'],
 )];
-array_push($menus, $manageHome, $product, $bannerManager);
+$userManager = ['id'=>"menu-user", 'label'=>'会员管理', 'items'=>array(
+    ['dataHref' => url('admin/user'), 'label' => '会员列表','dataTitle' => '会员管理 1'],
+)];
+array_push($menus, $manageHome, $product, $bannerManager, $userManager);
 //print_r($menus);die;
 ?>
 

@@ -73,6 +73,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
     Route::post('/ManageHome/postEdit', 'Admin\ManageHomeController@postEdit');
     Route::any('/ManageHome/delete', 'Admin\ManageHomeController@delete');
 
+    //    会员管理
+    Route::any('/user', 'Admin\UserController@index');
+    Route::any('/user/add', 'Admin\UserController@add');
+    Route::any('/user/edit', 'Admin\UserController@edit');
+    Route::post('/user/postEdit', 'Admin\UserController@postEdit');
+    Route::any('/user/delete', 'Admin\UserController@delete');
+
     Route::get('/welcome', 'AdminController@welcome');
     Route::get('/', 'AdminController@index');
 });
