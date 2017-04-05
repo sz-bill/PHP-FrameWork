@@ -1,24 +1,25 @@
 @extends('layouts.product')
 
 @section('content')
+    <script src="/skin/ckeditor/ckeditor.js"></script>
+    <script src="/skin/ckeditor/config.js"></script>
+
     <div class="page-container">
-        <form action="{{ url('admin/product/add') }}" method="post" class="form form-horizontal" id="form-article-add">
+        <form action="" method="post" class="form form-horizontal" id="form-article-add">
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品标题：</label>
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>状态：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="" placeholder="" id="" name="">
+                    <select class="select" name="status">
+                        <option value="1">启用</option>
+                        <option value="0">禁用</option>
+                    </select>
                 </div>
             </div>
+
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">简略标题：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="" placeholder="" id="" name="">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品分类：</label>
                 <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="" class="select">
+				<select name="category_id" class="select">
 					<option value="0">一级分类</option>
 					<option value="1">一级分类</option>
 					<option value="11">├二级分类</option>
@@ -27,152 +28,83 @@
 				</select>
 				</span> </div>
             </div>
+
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">排序值：</label>
+                <label class="form-label col-xs-4 col-sm-2">SKU编码：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="0" placeholder="" id="" name="">
+                    <input type="text" class="input-text" value="" placeholder="" id="sku" name="sku">
+                </div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">主标题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="" placeholder="" id="title" name="title">
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
-                    <div class="check-box">
-                        <input type="checkbox" id="checkbox-1">
-                        <label for="checkbox-1">&nbsp;</label>
-                    </div>
+                <label class="form-label col-xs-4 col-sm-2">副标题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="" placeholder="" id="sub_title" name="sub_title">
                 </div>
             </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">库存数量：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" value="" placeholder="" id="qty" name="qty">
+                </div>
+            </div>
+
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">产品规格：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="输入长度" value="" class="input-text" style=" width:25%">
+                    <input type="text" name="length" id="length" placeholder="输入长度" value="" class="input-text" style=" width:25%">
                     MM
-                    <input type="text" name="" id="" placeholder="输入宽度" value="" class="input-text" style=" width:25%">
+                    <input type="text" name="depth" id="depth" placeholder="输入宽度" value="" class="input-text" style=" width:25%">
                     MM
-                    <input type="text" name="" id="" placeholder="输入高度" value="" class="input-text" style=" width:25%">
+                    <input type="text" name="height" id="height" placeholder="输入高度" value="" class="input-text" style=" width:25%">
                     MM </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">产地：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">材质：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">所属供应商：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">价格计算单位：</label>
-                <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select">
-					<option>请选择</option>
-					<option value="1">件</option>
-					<option value="2">斤</option>
-					<option value="3">KG</option>
-					<option value="4">吨</option>
-					<option value="5">套</option>
-				</select>
-				</span> </div>
-            </div>
+
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">产品重量：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                    <input type="text" name="weight" id="weight" placeholder="" value="" class="input-text" style="width:90%">
                     kg</div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">成本价格：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" name="cost" id="cost" placeholder="" value="" class="input-text" style="width:90%">
+                    元</div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">产品展示价格：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" name="price" id="price" placeholder="" value="" class="input-text" style="width:90%">
+                    元</div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">产品展示价格：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                    <input type="file" name="image" id="image" placeholder="" style="width:90%">
                     元</div>
             </div>
+
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">市场价格：</label>
+                <label class="form-label col-xs-4 col-sm-2">产品简介：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
-                    元</div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">成本价格：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
-                    元</div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">最低销售价格：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
-                    元</div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">销售开始时间：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:180px;">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">销售结束时间：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate" style="width:180px;">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">产品关键字：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">产品摘要：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                    <textarea name="short_description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
                     <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
                 </div>
             </div>
+
             <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">缩略图：</label>
+                <label class="form-label col-xs-4 col-sm-2">产品描述：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <div class="uploader-thum-container">
-                        <div id="fileList" class="uploader-list"></div>
-                        <div id="filePicker">选择图片</div>
-                        <button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">图片上传：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <div class="uploader-list-container">
-                        <div class="queueList">
-                            <div id="dndArea" class="placeholder">
-                                <div id="filePicker-2"></div>
-                                <p>或将照片拖到这里，单次最多可选300张</p>
-                            </div>
-                        </div>
-                        <div class="statusBar" style="display:none;">
-                            <div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
-                            <div class="info"></div>
-                            <div class="btns">
-                                <div id="filePicker2"></div>
-                                <div class="uploadBtn">开始上传</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">详细内容：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
+                    <textarea id="editor" style="min-height: 200px;" class="textarea" name="description">产品描述</textarea>
                 </div>
             </div>
             <div class="row cl">
@@ -185,9 +117,6 @@
         </form>
     </div>
 @endsection
-
-
-
 
 @section('afterContent')
     <!--请在下方写此页面业务相关的脚本-->
@@ -886,4 +815,9 @@
             var ue = UE.getEditor('editor');
         });
     </script>
+
+    <?=$ckeditor['short_description']?>
+    <?=$ckeditor['description']?>
+
+
 @endsection

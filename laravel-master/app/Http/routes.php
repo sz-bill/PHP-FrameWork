@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
     Route::post('/product/postEdit', 'Admin\ProductController@postEdit');
     Route::any('/product/delete', 'Admin\ProductController@delete');
     Route::any('/product/uploadImage', 'Admin\ProductController@uploadImage');
+    Route::any('/product/fileupload', 'Admin\ProductController@fileupload');
 
 //    Banner管理
     Route::any('/bannerManager', 'Admin\BannerController@index');

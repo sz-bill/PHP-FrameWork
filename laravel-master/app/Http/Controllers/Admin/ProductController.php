@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\models\Category;
+use App\models\Common;
 use App\models\Product;
 use App\models\ProductImage;
 use App\models\Upload;
@@ -90,7 +91,9 @@ class ProductController extends Controller
 
             return redirect('admin/product');
         }
-        return view('admin.product.add');
+        $short_description = Common::ckeditor('short_description');
+        $description = Common::ckeditor('description');
+        return view('admin.product.add',['ckeditor' => ['short_description' => $short_description, 'description' => $description]]);
     }
 
     /**
