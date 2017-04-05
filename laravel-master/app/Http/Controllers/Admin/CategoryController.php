@@ -14,7 +14,8 @@ class CategoryController extends Controller
     private $catalog;
     public function __construct()
     {
-        $this->middleware('guest:admin', ['except' => 'logout']);
+        //        后台的每个控制器都必须加这一行才会验证登录
+        $this->middleware('admin');
         $this->init();
     }
     protected function init(){

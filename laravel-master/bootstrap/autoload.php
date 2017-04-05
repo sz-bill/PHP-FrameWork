@@ -4,6 +4,7 @@ define('LARAVEL_START', microtime(true));
 define('DS',  DIRECTORY_SEPARATOR);
 define('SKIN_CSS', '/skin/frontend/css/');
 define('SKIN_JS', '/skin/frontend/js/');
+define('SKIN_ADMIN', '/skin/admin/');
 define('SKIN_CSS_ADMIN', '/skin/admin/css/');
 define('SKIN_JS_ADMIN', '/skin/admin/js/');
 

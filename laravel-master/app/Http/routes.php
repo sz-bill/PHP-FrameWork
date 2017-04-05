@@ -73,5 +73,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
     Route::post('/ManageHome/postEdit', 'Admin\ManageHomeController@postEdit');
     Route::any('/ManageHome/delete', 'Admin\ManageHomeController@delete');
 
+    Route::get('/welcome', 'AdminController@welcome');
     Route::get('/', 'AdminController@index');
 });

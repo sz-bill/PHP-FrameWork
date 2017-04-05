@@ -15,7 +15,8 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin', ['except' => 'logout']);
+        //        后台的每个控制器都必须加这一行才会验证登录
+        $this->middleware('admin');
     }
     protected function getCategory(){
         return new Category();

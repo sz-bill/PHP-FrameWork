@@ -15,6 +15,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
+//        后台的每个控制器都必须加这一行才会验证登录
         $this->middleware('admin');
     }
 
@@ -26,5 +27,15 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.index');
+    }
+
+    /**
+     * 欢迎页面
+     * @author Neo.Huang
+     * @date 20170404
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\think\response\View
+     */
+    public function welcome(){
+        return view('admin.welcome');
     }
 }
