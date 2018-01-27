@@ -1,0 +1,63 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: intopdev
+ * Date: 2018/1/27
+ * Time: 上午10:12
+ * author: 414243927@qq.com 魔法猪
+ */
+//完成把从数据库已读取出来的数据， 变成一个树形目录结构的数组
+class ClusterArray
+{
+    /**
+     * 数组层级缩进转换
+     * @param array $array 源数组
+     * @param int   $pid
+     * @param int   $level
+     * @return array
+     */
+    static private function array2level($array, $pid = 0, $level = 1)
+    {
+        static $list = [];
+        foreach ($array as $v) {
+            if ($v['pid'] == $pid) {
+                $v['level'] = $level;
+                $list[] = $v;
+                self::array2level($array, $v['id'], $level + 1);
+            }
+        }
+        return $list;
+    }
+
+    /**
+     * 建立目录树
+     * @param $array_data
+     * @param $int_pid
+     * @return array
+     */
+    static private function buildTree($array_data, $int_pid){
+        $tree = array();//每次都声明一个新数组用来放子元素
+        foreach($array_data as $v){
+            if($v['pid'] == $int_pid){//匹配子记录
+                $v['children'] = self::buildTree($array_data,$v['id']); //递归获取子记录
+                if($v['children'] == null){
+                    unset($v['children']);//如果子元素为空则unset()进行删除，说明已经到该分支的最后一个元素了（可选）
+                }
+                $tree[] = $v;//将记录存入新数组
+            }
+        }
+        return $tree;//返回新数组
+    }
+
+    /**
+     * 入口函数， 返回树形目录数组内容
+     * @param $array_data
+     * @return array
+     */
+    static public function tree($array_data)
+    {
+        $level_data = self::array2level($array_data);
+        $tree_data = self::buildTree($level_data, 0);
+        return $tree_data;
+    }
+}
